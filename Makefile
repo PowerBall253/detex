@@ -13,7 +13,7 @@ MAJOR_VERSION = 0
 ifeq ($(LIBRARY_CONFIGURATION), DEBUG)
 OPTCFLAGS += -ggdb
 else
-OPTCFLAGS += -Ofast -ffast-math
+OPTCFLAGS += -O3
 endif
 # Use the 1999 ISO C standard with POSIX.1-2008 definitions.
 CFLAGS = -std=c99 -D_POSIX_C_SOURCE=200809L -Wall -Wno-maybe-uninitialized -pipe -I. $(OPTCFLAGS)
