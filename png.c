@@ -19,6 +19,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 // This file is not part of the detex library proper, but used by detex-convert.
 
 #include <stdlib.h>
+#include <string.h>
 #include <alloca.h>
 #include <png.h>
 

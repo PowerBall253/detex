@@ -875,6 +875,13 @@ DETEX_API bool detexLoadRawFile(const char *filename, detexTexture *texture);
 /* in texture. Returns true if successful. */
 DETEX_API bool detexSaveRawFile(detexTexture *texture, const char *filename);
 
+/* Load texture from PNG file (first mip-map only). Returns true if successful. */
+/* The texture is allocated, free with free(). */
+DETEX_API bool detexLoadPNGFile(const char *filename, detexTexture **texture_out);
+
+/* Save texture to PNG file (single mip-map level). Returns true if succesful. */
+DETEX_API bool detexSavePNGFile(detexTexture *texture, const char *filename);
+
 /* Return pixel size in bytes for pixel format or texture format (decompressed). */
 static DETEX_INLINE_ONLY int detexGetPixelSize(uint32_t pixel_format) {
 	return 1 + ((pixel_format & 0xF00) >> 8);
