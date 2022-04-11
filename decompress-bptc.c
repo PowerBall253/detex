@@ -140,8 +140,13 @@ int mode, detexBlock128 * DETEX_RESTRICT block) {
 		// Extract end-point P-bits. Take advantage of the fact that they don't cross the
 		// 64-bit word boundary in any mode.
 		uint32_t bits;
-		if (block->index < 64)
+		if (block->index < 64) {
 			bits = block->data0 >> block->index;
+
+			if ((block->index + nu_subsets * 2) > 64) {
+				bits |= (block->data1 << (64 - block->index));
+			}
+		}
 		else
 			bits = block->data1 >> (block->index - 64);
 		for (int i = 0; i < nu_subsets * 2; i++) {
